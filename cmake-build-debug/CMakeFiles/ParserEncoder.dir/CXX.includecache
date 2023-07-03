@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/aleksistoren/Desktop/ParserEncoder/main.cpp
+fstream
+-
+iostream
+-
+cstdint
+-
+vector
+-
+iomanip
+-
+parser.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/parser.h
+

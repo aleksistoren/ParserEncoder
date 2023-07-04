@@ -104,6 +104,12 @@
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/main.cpp">
 			<Option target="ParserEncoder"/>
 		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/PcapPacket.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/PcapParser.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/EthernetHeader.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
@@ -117,9 +123,6 @@
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h">
-			<Option target="ParserEncoder"/>
-		</Unit>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/parser.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/CMakeLists.txt">

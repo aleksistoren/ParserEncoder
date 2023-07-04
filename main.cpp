@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <vector>
 #include <iomanip>
-#include "parser/parser.h"
+#include "parser/PcapParser.h"
 #include "decoder/parts/MarketDataPacketHeader.h"
 #include "decoder/parts/SBEHeader.h"
 #include "decoder/parts/RepeatingGroupDimensions.h"
@@ -172,7 +172,7 @@ int main() {
     auto res = parser.parse();
 
     for (const auto& i:res){
-        decodeIncremental(i);
+        decodeIncremental(i.packetData);
     }
 
     return 0;

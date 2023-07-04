@@ -8,10 +8,11 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: ../decoder/parts/RepeatingGroupDimensio
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../decoder/parts/RootBlock.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../decoder/parts/SBEHeader.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../main.cpp
+CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/PcapPacket.h
+CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/PcapParser.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/headers/EthernetHeader.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/headers/IpHeader.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/headers/PcapGlobalHeader.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/headers/PcapPacketHeader.h
 CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/headers/UdpHeader.h
-CMakeFiles/ParserEncoder.dir/main.cpp.o: ../parser/parser.h
 

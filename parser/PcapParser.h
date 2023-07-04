@@ -7,6 +7,7 @@
 #include "headers/EthernetHeader.h"
 #include "headers/IpHeader.h"
 #include "headers/UdpHeader.h"
+#include "PcapPacket.h"
 
 #ifndef PARSERENCODER_PARSER_H
 #define PARSERENCODER_PARSER_H
@@ -37,43 +38,37 @@ public:
                   << "Network: " << globalHeader.network << "\n\n";
     }
 
-    std::vector<std::vector<uint8_t>> parse() {
-        std::vector<std::vector<uint8_t>> parsedResult;
+    std::vector<PcapPacket> parse() {
+        std::vector<PcapPacket> parsedResult;
         int i = 1;
         while (!file.eof()) {
             if (i++==1000) return parsedResult;
-            PcapPacketHeader packetHeader{};
-            file.read(reinterpret_cast<char*>(&packetHeader), sizeof(packetHeader));
+            PcapPacket packet{};
 
-            if (!file) {
-                break;
-            }
+            file.read(reinterpret_cast<char*>(&packet.packetHeader), sizeof(packet.packetHeader));
 
-            EthernetHeader ethernetHeader{};
-            file.read(reinterpret_cast<char*>(&ethernetHeader), sizeof(ethernetHeader));
+            file.read(reinterpret_cast<char*>(&packet.ethernetHeader), sizeof(packet.ethernetHeader));
 
-            IpHeader ipHeader{};
-            file.read(reinterpret_cast<char*>(&ipHeader), sizeof(ipHeader));
+            file.read(reinterpret_cast<char*>(&packet.ipHeader), sizeof(packet.ipHeader));
 
-            UdpHeader udpHeader{};
-            file.read(reinterpret_cast<char*>(&udpHeader), sizeof(udpHeader));
+            file.read(reinterpret_cast<char*>(&packet.udpHeader), sizeof(packet.udpHeader));
 
             // print packet header info...
 
             // print UDP header info...
             std::cout << "UDP Header:\n"
-                      << "Source Port: " << udpHeader.srcPort << "\n"
-                      << "Destination Port: " << udpHeader.destPort << "\n"
-                      << "Length: " << udpHeader.length << "\n"
-                      << "Checksum: " << udpHeader.checksum << "\n";
+                      << "Source Port: " << packet.udpHeader.srcPort << "\n"
+                      << "Destination Port: " << packet.udpHeader.destPort << "\n"
+                      << "Length: " << packet.udpHeader.length << "\n"
+                      << "Checksum: " << packet.udpHeader.checksum << "\n";
 
             // Reading packet data
-            std::vector<uint8_t> packetData(packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
-            file.read(reinterpret_cast<char*>(packetData.data()), packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
-            parsedResult.push_back(packetData);
+            packet.packetData.resize(packet.packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
+            file.read(reinterpret_cast<char*>(packet.packetData.data()), packet.packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
+            parsedResult.push_back(packet);
             // Print the packet data
             logFile << "Packet data: ";
-            for (char c : packetData) {
+            for (char c : packet.packetData) {
                 logFile << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(static_cast<unsigned char>(c)) << ' ';
             }
             logFile << "\n";

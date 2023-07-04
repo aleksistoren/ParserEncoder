@@ -13,6 +13,7 @@
 
 #endif //PARSERENCODER_DECODER_H
 
+
 class Decoder {
 public:
     static void decode(const std::vector<uint8_t> &data) {

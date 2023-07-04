@@ -37,8 +37,11 @@ public:
                   << "Network: " << globalHeader.network << "\n\n";
     }
 
-    void parse() {
+    std::vector<std::vector<uint8_t>> parse() {
+        std::vector<std::vector<uint8_t>> parsedResult;
+        int i = 1;
         while (!file.eof()) {
+            if (i++==1000) return parsedResult;
             PcapPacketHeader packetHeader{};
             file.read(reinterpret_cast<char*>(&packetHeader), sizeof(packetHeader));
 
@@ -67,7 +70,7 @@ public:
             // Reading packet data
             std::vector<uint8_t> packetData(packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
             file.read(reinterpret_cast<char*>(packetData.data()), packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
-
+            parsedResult.push_back(packetData);
             // Print the packet data
             logFile << "Packet data: ";
             for (char c : packetData) {

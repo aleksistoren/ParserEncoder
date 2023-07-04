@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/GroupBlock.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/IncrementalPacketHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/MarketDataPacketHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RepeatingGroupDimensions.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RootBlock.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h
+
 /Users/aleksistoren/Desktop/ParserEncoder/main.cpp
 fstream
 -
@@ -17,8 +29,40 @@ vector
 -
 iomanip
 -
-parser.h
-/Users/aleksistoren/Desktop/ParserEncoder/parser.h
+parser/parser.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/parser.h
+decoder/parts/MarketDataPacketHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/MarketDataPacketHeader.h
+decoder/parts/SBEHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h
+decoder/parts/RepeatingGroupDimensions.h
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RepeatingGroupDimensions.h
+decoder/parts/RootBlock.h
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RootBlock.h
+decoder/parts/GroupBlock.h
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/GroupBlock.h
+decoder/parts/IncrementalPacketHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/IncrementalPacketHeader.h
 
-/Users/aleksistoren/Desktop/ParserEncoder/parser.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/EthernetHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/IpHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapGlobalHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapPacketHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h
+
+/Users/aleksistoren/Desktop/ParserEncoder/parser/parser.h
+headers/PcapGlobalHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapGlobalHeader.h
+headers/PcapPacketHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapPacketHeader.h
+headers/EthernetHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/EthernetHeader.h
+headers/IpHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/IpHeader.h
+headers/UdpHeader.h
+/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h
 

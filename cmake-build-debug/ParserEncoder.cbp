@@ -80,25 +80,46 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/EthernetHeader.h">
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/decoder.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/IpHeader.h">
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/GroupBlock.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/PcapGlobalHeader.h">
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/IncrementalPacketHeader.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/PcapPacketHeader.h">
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/MarketDataPacketHeader.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RepeatingGroupDimensions.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RootBlock.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/main.cpp">
 			<Option target="ParserEncoder"/>
 		</Unit>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser.h">
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/EthernetHeader.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/IpHeader.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapGlobalHeader.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapPacketHeader.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/parser/parser.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/CMakeLists.txt">

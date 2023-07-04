@@ -27,12 +27,12 @@ T fromBinary(const std::vector<uint8_t>::const_iterator &begin) {
     return value;
 }
 
-void decodeSnapshot(const std::vector<uint8_t> &data) {
+bool decodeSnapshot(const std::vector<uint8_t> &data) {
     auto it = data.cbegin();
 
     if (data.size() < sizeof(MarketDataPacketHeader) + sizeof(SBEHeader) + sizeof(RepeatingGroupDimensions)) {
         std::cout << "Data is too short to contain a valid message.\n";
-        return;
+        return false;
     }
 
     MarketDataPacketHeader marketDataPacketHeader;
@@ -63,7 +63,7 @@ void decodeSnapshot(const std::vector<uint8_t> &data) {
 
     if (std::distance(it, data.cend()) < sbeHeader.BlockLength) {
         std::cout << "Data is too short to contain a valid root block.\n";
-        return;
+        return false;
     }
 
     RootBlock rootBlock;
@@ -73,7 +73,7 @@ void decodeSnapshot(const std::vector<uint8_t> &data) {
 
     if (std::distance(it, data.cend()) < sizeof(RepeatingGroupDimensions)) {
         std::cout << "Data is too short to contain valid repeating group dimensions.\n";
-        return;
+        return false;
     }
 
     RepeatingGroupDimensions repeatingGroupDimensions;
@@ -85,7 +85,7 @@ void decodeSnapshot(const std::vector<uint8_t> &data) {
 
     if (std::distance(it, data.cend()) < repeatingGroupDimensions.numInGroup * repeatingGroupDimensions.blockLength) {
         std::cout << "Data is too short to contain all group blocks.\n";
-        return;
+        return false;
     }
 
     for (uint8_t i = 0; i < repeatingGroupDimensions.numInGroup; i++) {
@@ -93,10 +93,18 @@ void decodeSnapshot(const std::vector<uint8_t> &data) {
         groupBlock.data.insert(groupBlock.data.end(), it, it + repeatingGroupDimensions.blockLength);
         it += repeatingGroupDimensions.blockLength;
         std::cout << "Group block #" << (int)i << " data size: " << groupBlock.data.size() << "\n";
+        // Log the root block data
+        std::cout << "Group block data: ";
+        for (auto byte : groupBlock.data) {
+            std::cout << static_cast<int>(byte) << " ";
+        }
+        std::cout << "\n" << "\n";
     }
+
+    return true;
 }
 
-void decodeIncremental(const std::vector<uint8_t> &data) {
+bool decodeIncremental(const std::vector<uint8_t> &data) {
     auto it = data.cbegin();
 
     MarketDataPacketHeader marketDataPacketHeader;
@@ -108,7 +116,7 @@ void decodeIncremental(const std::vector<uint8_t> &data) {
     it += 2;
     std::cout << "MsgSize: " << marketDataPacketHeader.MsgSize << "\n";
 
-    marketDataPacketHeader.MsgFlags = fromBinary<uint16_t>(it);
+    marketDataPacketHeader.MsgFlags = fromBinary<uint16_t>(it)==;
     it += 2;
     std::cout << "MsgFlags: " << marketDataPacketHeader.MsgFlags << "\n";
 
@@ -146,7 +154,7 @@ void decodeIncremental(const std::vector<uint8_t> &data) {
 
         if (std::distance(it, data.cend()) < sbeHeader.BlockLength) {
             std::cout << "Data is too short to contain a valid root block.\n";
-            return;
+            return false;
         }
 
         RootBlock rootBlock;
@@ -159,8 +167,8 @@ void decodeIncremental(const std::vector<uint8_t> &data) {
             std::cout << static_cast<int>(byte) << " ";
         }
         std::cout << "\n";
-
     }
+    return true;
 }
 
 
@@ -172,7 +180,9 @@ int main() {
     auto res = parser.parse();
 
     for (const auto& i:res){
-        decodeIncremental(i.packetData);
+        if (!decodeIncremental(i.packetData)){
+            decodeSnapshot(i.packetData);
+        }
     }
 
     return 0;

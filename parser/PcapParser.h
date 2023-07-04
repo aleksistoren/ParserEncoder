@@ -19,59 +19,61 @@ class PcapParser {
     std::ofstream logFile;
 
 public:
-    PcapParser(const std::string& path, const std::string &logPath = "log.txt")
-            : file(path, std::ios::binary), logFile(logPath)
-    {
+    PcapParser(const std::string& path, const std::string &logPath = "logsPcapData.txt")
+            : file(path, std::ios::binary), logFile(logPath) {
         if (!file) {
             throw std::runtime_error("Unable to open pcap file: " + path);
         }
 
         PcapGlobalHeader globalHeader{};
-        file.read(reinterpret_cast<char*>(&globalHeader), sizeof(globalHeader));
+        file.read(reinterpret_cast<char *>(&globalHeader), sizeof(globalHeader));
 
-        std::cout << "Global Header:\n"
-                  << "Magic Number: " << std::hex << globalHeader.magicNumber << "\n"
-                  << "Version: " << globalHeader.versionMajor << "." << globalHeader.versionMinor << "\n"
-                  << "Time Zone Correction: " << globalHeader.thiszone << "\n"
-                  << "Timestamp Accuracy: " << globalHeader.sigfigs << "\n"
-                  << "Max Length of Packet Capture: " << globalHeader.snaplen << "\n"
-                  << "Network: " << globalHeader.network << "\n\n";
+        logFile << "Global Header:\n"
+                << "Magic Number: " << std::hex << globalHeader.magicNumber << "\n"
+                << "Version: " << globalHeader.versionMajor << "." << globalHeader.versionMinor << "\n"
+                << "Time Zone Correction: " << globalHeader.thiszone << "\n"
+                << "Timestamp Accuracy: " << globalHeader.sigfigs << "\n"
+                << "Max Length of Packet Capture: " << globalHeader.snaplen << "\n"
+                << "Network: " << globalHeader.network << "\n\n";
     }
 
     std::vector<PcapPacket> parse() {
         std::vector<PcapPacket> parsedResult;
         int i = 1;
         while (!file.eof()) {
-            if (i++==1000) return parsedResult;
+            if (i++ == 1000) return parsedResult;
             PcapPacket packet{};
 
-            file.read(reinterpret_cast<char*>(&packet.packetHeader), sizeof(packet.packetHeader));
+            file.read(reinterpret_cast<char *>(&packet.packetHeader), sizeof(packet.packetHeader));
 
-            file.read(reinterpret_cast<char*>(&packet.ethernetHeader), sizeof(packet.ethernetHeader));
+            file.read(reinterpret_cast<char *>(&packet.ethernetHeader), sizeof(packet.ethernetHeader));
 
-            file.read(reinterpret_cast<char*>(&packet.ipHeader), sizeof(packet.ipHeader));
+            file.read(reinterpret_cast<char *>(&packet.ipHeader), sizeof(packet.ipHeader));
 
-            file.read(reinterpret_cast<char*>(&packet.udpHeader), sizeof(packet.udpHeader));
+            file.read(reinterpret_cast<char *>(&packet.udpHeader), sizeof(packet.udpHeader));
 
             // print packet header info...
 
             // print UDP header info...
-            std::cout << "UDP Header:\n"
-                      << "Source Port: " << packet.udpHeader.srcPort << "\n"
-                      << "Destination Port: " << packet.udpHeader.destPort << "\n"
-                      << "Length: " << packet.udpHeader.length << "\n"
-                      << "Checksum: " << packet.udpHeader.checksum << "\n";
+            logFile << "UDP Header:\n"
+                    << "Source Port: " << packet.udpHeader.srcPort << "\n"
+                    << "Destination Port: " << packet.udpHeader.destPort << "\n"
+                    << "Length: " << packet.udpHeader.length << "\n"
+                    << "Checksum: " << packet.udpHeader.checksum << "\n";
 
             // Reading packet data
-            packet.packetData.resize(packet.packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
-            file.read(reinterpret_cast<char*>(packet.packetData.data()), packet.packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
+            packet.packetData.resize(
+                    packet.packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
+            file.read(reinterpret_cast<char *>(packet.packetData.data()),
+                      packet.packetHeader.inclLen - sizeof(EthernetHeader) - sizeof(IpHeader) - sizeof(UdpHeader));
             parsedResult.push_back(packet);
             // Print the packet data
             logFile << "Packet data: ";
             for (char c : packet.packetData) {
-                logFile << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(static_cast<unsigned char>(c)) << ' ';
+                logFile << std::hex << std::setw(2) << std::setfill('0')
+                        << static_cast<int>(static_cast<unsigned char>(c)) << ' ';
             }
-            logFile << "\n";
+            logFile << "\n" << "\n";
         }
     }
 };

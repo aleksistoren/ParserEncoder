@@ -240,7 +240,7 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
   /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/IpHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/PcapPacket.h \
-  /Users/aleksistoren/Desktop/ParserEncoder/decoder/decoder.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/Decoder.h \
   /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RootBlock.h \
   /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/IncrementalPacketHeader.h \
@@ -539,6 +539,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/bit:
 
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/Decoder.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_timespec.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/ostream:
@@ -550,8 +552,6 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/_types/_uint8_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/wctype.h:
-
-/Users/aleksistoren/Desktop/ParserEncoder/decoder/decoder.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_ssize_t.h:
 

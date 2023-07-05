@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/Decoder.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/IncrementalPacket.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/SnapshotPacket.h">
-			<Option target="ParserEncoder"/>
-		</Unit>
-		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/decoder.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/IncrementalPacketHeader.h">
@@ -105,6 +105,39 @@
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderBookSnapshot.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderExecution.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderUpdate.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5NULL.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/GroupSize.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Int64NULL.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDEntryType.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlags2Set.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlagsSet.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDUpdateAction.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/main.cpp">

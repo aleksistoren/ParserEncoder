@@ -238,7 +238,7 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/IpHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/PcapPacket.h \
-  /Users/aleksistoren/Desktop/ParserEncoder/parser/../decoder/decoder.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/parser/../decoder/Decoder.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/../decoder/parts/SBEHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/../decoder/parts/RootBlock.h \
   /Users/aleksistoren/Desktop/ParserEncoder/parser/../decoder/parts/IncrementalPacketHeader.h \

@@ -8,7 +8,7 @@
 #include "headers/IpHeader.h"
 #include "headers/UdpHeader.h"
 #include "PcapPacket.h"
-#include "../decoder/decoder.h"
+#include "../decoder/Decoder.h"
 
 #ifndef PARSERENCODER_PARSER_H
 #define PARSERENCODER_PARSER_H

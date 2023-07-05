@@ -17,3 +17,11 @@ struct MarketDataPacketHeader {
     uint64_t SendingTime;
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const MarketDataPacketHeader& header) {
+    os << "MsgSeqNum: " << header.MsgSeqNum << ", "
+       << "MsgSize: " << header.MsgSize << ", "
+       << "MsgFlags: " << header.MsgFlags << ", "
+       << "SendingTime: " << header.SendingTime;
+    return os;
+}

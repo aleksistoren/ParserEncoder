@@ -18,3 +18,14 @@ struct IncrementalPacket{
     IncrementalPacketHeader incrementalPacketHeader;
     std::vector<std::pair<SBEHeader, RootBlock> > SbeMessages;
 };
+
+std::ostream& operator<<(std::ostream& os, const IncrementalPacket& packet) {
+    os << "Market Data Packet Header: " << packet.marketDataPacketHeader << std::endl;
+    os << "Incremental Packet Header: " << packet.incrementalPacketHeader << std::endl;
+    os << "SBE Messages: " << std::endl;
+    for (const auto& sbeMessage : packet.SbeMessages) {
+        os << "SBE Header: " << sbeMessage.first << std::endl;
+        os << "Root Block: " << sbeMessage.second << std::endl;
+    }
+    return os;
+}

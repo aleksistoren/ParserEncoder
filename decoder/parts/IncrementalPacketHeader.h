@@ -15,3 +15,9 @@ struct IncrementalPacketHeader {
     uint32_t TradingSessionID;
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const IncrementalPacketHeader& header) {
+    os << "TransactTime: " << header.TransactTime << ", "
+       << "TradingSessionID: " << header.TradingSessionID;
+    return os;
+}

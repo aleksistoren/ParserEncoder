@@ -14,3 +14,11 @@ struct RootBlock {
     std::vector<uint8_t> data;
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const RootBlock& block) {
+    os << "Data: ";
+    for (const auto& value : block.data) {
+        os << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(value) << " ";
+    }
+    return os;
+}

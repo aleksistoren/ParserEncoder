@@ -21,3 +21,15 @@ struct SnapshotPacket{
     RepeatingGroupDimensions repeatingGroupDimensions;
     std::vector<RepeatingSection> repeatingSections;
 };
+
+std::ostream& operator<<(std::ostream& os, const SnapshotPacket& packet) {
+    os << "Market Data Packet Header: " << packet.marketDataPacketHeader << std::endl;
+    os << "SBE Header: " << packet.sbeHeader << std::endl;
+    os << "Root Block: " << packet.rootBlock << std::endl;
+    os << "Repeating Group Dimensions: " << packet.repeatingGroupDimensions << std::endl;
+    os << "Repeating Sections: " << std::endl;
+    for (const auto& section : packet.repeatingSections) {
+        os << section << std::endl;
+    }
+    return os;
+}

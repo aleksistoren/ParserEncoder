@@ -107,8 +107,7 @@
 				13,
 				14,
 				15,
-				16,
-				17
+				16
 			]
 		}
 	],
@@ -173,11 +172,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "decoder/parts/RepeatingGroupDimensions.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "decoder/parts/GroupBlock.h",
 			"sourceGroupIndex" : 1
 		},
 		{

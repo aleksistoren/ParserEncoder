@@ -17,3 +17,11 @@ struct SBEHeader {
     uint16_t Version;
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const SBEHeader& header) {
+    os << "Block Length: " << header.BlockLength << ", "
+       << "Template ID: " << header.TemplateID << ", "
+       << "Schema ID: " << header.SchemaID << ", "
+       << "Version: " << header.Version;
+    return os;
+}

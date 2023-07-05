@@ -86,12 +86,18 @@ public:
                 SnapshotPacket snapshotPacket;
                 if (!Decoder::tryDecodeSnapshot(packet.packetData, snapshotPacket)){
                     ++cntBadPackets;
+                    logFile<<"Incorrect message"<<std::endl;
+                }else{
+                    logFile<<snapshotPacket<<std::endl;
                 }
+            }else{
+                logFile<<incrementalPacket<<std::endl;
             }
 
             index++;
         }
 
+        logFile<<"cntBadPackets = "<<cntBadPackets<<"/"<<index<<"\n";
         std::cout<<"cntBadPackets = "<<cntBadPackets<<"/"<<index<<"\n";
     }
 };

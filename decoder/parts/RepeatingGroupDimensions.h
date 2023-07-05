@@ -15,3 +15,9 @@ struct RepeatingGroupDimensions {
     uint8_t numInGroup;
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const RepeatingGroupDimensions& dimensions) {
+    os << "Block Length: " << dimensions.blockLength << ", "
+       << "Number in Group: " << static_cast<int>(dimensions.numInGroup);
+    return os;
+}

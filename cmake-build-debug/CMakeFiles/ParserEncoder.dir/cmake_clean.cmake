@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ParserEncoder.dir/main.cpp.o"
+  "CMakeFiles/ParserEncoder.dir/main.cpp.o.d"
   "ParserEncoder"
   "ParserEncoder.pdb"
 )

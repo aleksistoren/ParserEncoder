@@ -7,6 +7,8 @@
 
 #endif //PARSERENCODER_GROUPBLOCK_H
 
+#pragma pack(push, 1)
 struct GroupBlock {
     std::vector<uint8_t> data;
 };
+#pragma pack(pop)

@@ -17,3 +17,13 @@ struct PcapGlobalHeader {
     uint32_t snaplen;       /* The maximum number of bytes captured for each packet, the remainder of the packet data is truncated. It's a snapshot length. */
     uint32_t network;       /* Data link type, defining the type of headers at the beginning of the packet. */
 };
+
+std::ostream& operator<<(std::ostream& os, const PcapGlobalHeader& header) {
+    os << "Magic Number: " << std::hex << header.magicNumber << std::endl;
+    os << "Version: " << header.versionMajor << "." << header.versionMinor << std::endl;
+    os << "Timezone Correction: " << header.thiszone << " seconds" << std::endl;
+    os << "Significant Figures: " << header.sigfigs << std::endl;
+    os << "Snapshot Length: " << header.snaplen << " bytes" << std::endl;
+    os << "Network Data Link Type: " << header.network;
+    return os;
+}

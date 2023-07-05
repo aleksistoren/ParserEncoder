@@ -14,3 +14,10 @@ struct PcapPacketHeader {
     uint32_t inclLen;       /* The number of bytes of packet data actually captured and saved in the pcap file. It should never become larger than snaplen specified in the global header. */
     uint32_t origLen;       /* The length of the packet as it appeared on the network when it was captured. If inclLen and origLen differ, the packet has been truncated in the file. */
 };
+
+std::ostream& operator<<(std::ostream& os, const PcapPacketHeader& header) {
+    os << "Timestamp: " << header.tsSec << "." << header.tsUsec << std::endl;
+    os << "Included Length: " << header.inclLen << " bytes" << std::endl;
+    os << "Original Length: " << header.origLen << " bytes";
+    return os;
+}

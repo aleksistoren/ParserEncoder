@@ -14,3 +14,11 @@ struct UdpHeader {
     uint16_t length;        // Length of the UDP header and UDP data (2 bytes)
     uint16_t checksum;      // Checksum for error checking (2 bytes)
 };
+
+std::ostream& operator<<(std::ostream& os, const UdpHeader& header) {
+    os << "Source Port: " << header.srcPort << std::endl;
+    os << "Destination Port: " << header.destPort << std::endl;
+    os << "Length: " << header.length << std::endl;
+    os << "Checksum: " << header.checksum;
+    return os;
+}

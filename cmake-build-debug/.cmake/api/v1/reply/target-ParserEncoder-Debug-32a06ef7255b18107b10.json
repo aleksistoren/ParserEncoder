@@ -118,7 +118,9 @@
 				24,
 				25,
 				26,
-				27
+				27,
+				28,
+				29
 			]
 		}
 	],
@@ -263,6 +265,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "decoder/sbe_messages/data_types/Decimal5NULL.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "decoder/sbe_messages/MessageParser.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "decoder/sbe_messages/SbeBaseMessage.h",
 			"sourceGroupIndex" : 1
 		}
 	],

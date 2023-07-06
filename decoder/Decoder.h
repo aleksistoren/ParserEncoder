@@ -110,13 +110,12 @@ private:
     template<typename T>
     static bool tryDecodeToStruct(std::vector<uint8_t>::const_iterator& it, const std::vector<uint8_t>::const_iterator& end, T& result) {
         static_assert(std::is_pod<T>::value, "T must be a POD (Plain Old Data) type");
-        auto d = std::distance(it, end);
-        auto t = sizeof(T);
         if (std::distance(it, end) < sizeof(T)) {
             return false;
         }
         std::memcpy(&result, &(*it), sizeof(T));
         it += sizeof(T);
+        int t = sizeof(T);
         return true;
     }
 };

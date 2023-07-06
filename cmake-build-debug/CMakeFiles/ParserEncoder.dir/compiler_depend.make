@@ -248,8 +248,50 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
   /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/MarketDataPacketHeader.h \
   /Users/aleksistoren/Desktop/ParserEncoder/decoder/SnapshotPacket.h \
   /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RepeatingSection.h \
-  /Users/aleksistoren/Desktop/ParserEncoder/decoder/IncrementalPacket.h
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/IncrementalPacket.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/SbeBaseMessage.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/MessageParser.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderUpdate.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/cmath \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/math.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlagsSet.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlags2Set.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDUpdateAction.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/unordered_map \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__hash_table \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__node_handle \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/optional \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDEntryType.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderExecution.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderBookSnapshot.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Int64NULL.h \
+  /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5NULL.h
 
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5NULL.h:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Int64NULL.h:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderBookSnapshot.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/optional:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__hash_table:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/unordered_map:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlagsSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/cmath:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5.h:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/MessageParser.h:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/SbeBaseMessage.h:
 
 /Users/aleksistoren/Desktop/ParserEncoder/decoder/IncrementalPacket.h:
 
@@ -262,6 +304,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 /Users/aleksistoren/Desktop/ParserEncoder/parser/PcapPacket.h:
 
 /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/UdpHeader.h:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderExecution.h:
 
 /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/EthernetHeader.h:
 
@@ -425,6 +469,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach/machine/_structs.h:
 
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDUpdateAction.h:
+
 /Users/aleksistoren/Desktop/ParserEncoder/parser/headers/PcapPacketHeader.h:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include/limits.h:
@@ -466,6 +512,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_errno_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/string.h:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDEntryType.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/type_traits:
 
@@ -526,6 +574,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/string.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/limits:
+
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderUpdate.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__threading_support:
 
@@ -639,6 +689,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_pid_t.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/math.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__bit_reference:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_types/_size_t.h:
@@ -658,6 +710,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/AvailabilityVersions.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/Availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/math.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/istream:
 
@@ -685,6 +739,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/_types.h:
 
+/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlags2Set.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/wchar.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/streambuf:
@@ -710,6 +766,8 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o: /Users/aleksistoren/Desktop/ParserEncod
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__locale:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/_posix_availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__node_handle:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/sys/syslimits.h:
 

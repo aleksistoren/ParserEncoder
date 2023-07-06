@@ -107,6 +107,9 @@
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/MessageParser.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderBookSnapshot.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
@@ -114,6 +117,9 @@
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderUpdate.h">
+			<Option target="ParserEncoder"/>
+		</Unit>
+		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/SbeBaseMessage.h">
 			<Option target="ParserEncoder"/>
 		</Unit>
 		<Unit filename="/Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5.h">

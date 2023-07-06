@@ -9,7 +9,15 @@
 
 #endif //PARSERENCODER_DECIMAL5NULL_H
 
-struct Decimal5NULL {
-    static constexpr int64_t NullMantissa = 0;
-    Decimal5 value;
+struct Decimal5NULL : Decimal5 {
+    static constexpr int64_t NullMantissa = INT64_MIN;
+
+    friend std::ostream& operator<<(std::ostream& os, const Decimal5NULL& decimal) {
+        if (decimal.mantissa == NullMantissa) {
+            os << "NULL";
+        } else {
+            os << decimal.getDoubleValue();
+        }
+        return os;
+    }
 };

@@ -16,3 +16,8 @@ enum class MDEntryType : char {
     EmptyBook = 'J'
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const MDEntryType& entryType) {
+    os << static_cast<char>(entryType);
+    return os;
+}

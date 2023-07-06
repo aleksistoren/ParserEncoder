@@ -4,6 +4,7 @@
 
 #pragma once
 #include <cstdint>
+#include <unordered_map>
 
 #ifndef PARSERENCODER_MDUPDATEACTION_H
 #define PARSERENCODER_MDUPDATEACTION_H
@@ -17,3 +18,20 @@ enum class MDUpdateAction : uint8_t {
     Delete = 2
 };
 #pragma pack(pop)
+
+std::ostream& operator<<(std::ostream& os, const MDUpdateAction& action) {
+    static const std::unordered_map<MDUpdateAction, const char*> actionStrings = {
+            { MDUpdateAction::New, "New" },
+            { MDUpdateAction::Change, "Change" },
+            { MDUpdateAction::Delete, "Delete" }
+    };
+
+    auto iter = actionStrings.find(action);
+    if (iter != actionStrings.end()) {
+        os << iter->second;
+    } else {
+        os << "Unknown";
+    }
+
+    return os;
+}

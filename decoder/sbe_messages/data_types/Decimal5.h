@@ -19,5 +19,10 @@ struct Decimal5 {
     double getDoubleValue() const {
         return mantissa * pow(10, exponent);
     }
+
+    friend std::ostream& operator<<(std::ostream& os, const Decimal5& decimal) {
+        os << decimal.getDoubleValue();
+        return os;
+    }
 };
 #pragma pack(pop)

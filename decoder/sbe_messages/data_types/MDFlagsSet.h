@@ -13,5 +13,10 @@
 #pragma pack(push, 1)
 struct MDFlagsSet {
     uint64_t data;
+
+    friend std::ostream& operator<<(std::ostream& os, const MDFlagsSet& flags) {
+        os << flags.data;
+        return os;
+    }
 };
 #pragma pack(pop)

@@ -250,4 +250,24 @@ CMakeFiles/ParserEncoder.dir/main.cpp.o
  /Users/aleksistoren/Desktop/ParserEncoder/decoder/SnapshotPacket.h
  /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/RepeatingSection.h
  /Users/aleksistoren/Desktop/ParserEncoder/decoder/IncrementalPacket.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/SbeBaseMessage.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/MessageParser.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/parts/SBEHeader.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderUpdate.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/cmath
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/math.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/math.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlagsSet.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDFlags2Set.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDUpdateAction.h
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/unordered_map
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__hash_table
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__node_handle
+ /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/optional
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/MDEntryType.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderExecution.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/OrderBookSnapshot.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Int64NULL.h
+ /Users/aleksistoren/Desktop/ParserEncoder/decoder/sbe_messages/data_types/Decimal5NULL.h
 

@@ -18,7 +18,7 @@
 class MessageParser {
     static const size_t SIZE_OF_BASE = 8;
 public:
-    static bool tryParse(SBEHeader sbeHeader, const std::vector<uint8_t>& data, SbeBaseMessage*& message, std::ofstream& file) {
+    static bool tryParse(SBEHeader sbeHeader, const std::vector<uint8_t>& data, SbeBaseMessage*& message) {
         switch (sbeHeader.TemplateID) {
             case 15: {
                 auto *orderUpdate = new OrderUpdate();

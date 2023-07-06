@@ -50,7 +50,7 @@ struct OrderBookSnapshot: SbeBaseMessage {
     }
 
     void log(std::ostream &file) const override{
-        file<<"SbeBaseMessage: "<<std::endl;
+        file<<"OrderBookSnapshot: "<<std::endl;
         file<<(*this);
     }
 };

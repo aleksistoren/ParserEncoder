@@ -20,6 +20,8 @@
 class PcapParser {
     std::ifstream file;
     std::ofstream logFile;
+    int countOfIncorrectMessages = 0;
+    int countOfMessages = 0;
 
 public:
     PcapParser(const std::string &path, const std::string &logPath = "logsPcapData.txt")
@@ -43,8 +45,8 @@ public:
         int index = 0;
         int cntBadPackets = 0;
         while (!file.eof()) {
-            index++;
-            if (index == 10000) return;
+            std::cout<<index++<<std::endl;
+            //if (index == 100000) break;
             PcapPacket packet{};
 
             file.read(reinterpret_cast<char *>(&packet.packetHeader), sizeof(packet.packetHeader));
@@ -76,42 +78,56 @@ public:
                         << std::endl;
                 logFile << "Decoded messages: " << std::endl;
                 for (const auto& i: incrementalPacket.SbeMessages){
-                    SbeBaseMessage *message = nullptr;
                     logFile<<"Sbe Header: "<<std::endl;
                     logFile<<i.first<<std::endl;
-                    if (MessageParser::tryParse(i.first, i.second.data, message, logFile)){
-                        message->log(logFile);
-                    }else{
-                        logFile<<"Incorrect message"<<std::endl;
-                    }
+                    SbeBaseMessage *message = nullptr;
+                    decodeMesage(i.first, i.second.data, message);
+                    delete message;
                     logFile<<std::endl;
                 }
                 continue;
             }
             SnapshotPacket snapshotPacket;
-            if (!Decoder::tryDecodeSnapshot(packet.packetData, snapshotPacket)) {
-                ++cntBadPackets;
-                logFile << "Incorrect message"
+            if (Decoder::tryDecodeSnapshot(packet.packetData, snapshotPacket)) {
+                logFile << snapshotPacket
                         << std::endl
                         << std::endl;
+                logFile<<"Sbe Header: "
+                       <<snapshotPacket.sbeHeader<<std::endl;
+                for (auto repeatingSection: snapshotPacket.repeatingSections){
+                    SbeBaseMessage *message = nullptr;
+                    decodeMesage(snapshotPacket.sbeHeader, repeatingSection.data, message);
+                    delete message;
+                }
                 continue;
             }
 
-            logFile << snapshotPacket
+            ++cntBadPackets;
+            logFile << "Incorrect message"
                     << std::endl
                     << std::endl;
-
-            std::cout<<index<<std::endl;
         }
 
         logFile << "cntBadPackets = " << cntBadPackets << "/" << index
                 << std::endl;
         std::cout << "cntBadPackets = " << cntBadPackets << "/" << index
                   << std::endl;
+
+        logFile << "countOfIncorrectMessages = " << countOfIncorrectMessages << "/" << countOfMessages
+                << std::endl;
+        std::cout << "countOfIncorrectMessages = " << countOfIncorrectMessages << "/" << countOfMessages
+                  << std::endl;
+
+
     }
 private:
-    template<class T>
-    void logMessage(T* message){
-        logFile<<(*message)<<std::endl;
+    void decodeMesage(SBEHeader sbeHeader, const std::vector<uint8_t>& data, SbeBaseMessage *message){
+        countOfMessages++;
+        if (MessageParser::tryParse(sbeHeader, data, message)){
+            message->log(logFile);
+        }else{
+            logFile<<"Incorrect message"<<std::endl;
+            countOfIncorrectMessages++;
+        }
     }
 };

@@ -14,28 +14,28 @@ const std::string PCAP_FILE_PATH = "/Users/aleksistoren/Downloads/2023-04-25.184
 
 using namespace std;
 
-
-
-int main() {
+void solve(){
     // Open the pcap file
     std::ifstream file(PCAP_FILE_PATH, std::ios::binary);
     PcapParser parser = PcapParser(PCAP_FILE_PATH);
 
     parser.parse();
+}
 
-    /*int j=1;
-    int cnt = 0;
-    for (const auto& i:res){
-        cout<<j++<<endl;
-        if (!Decoder::tryDecodeIncremental(i.packetData)){
-            if (!Decoder::tryDecodeSnapshot(i.packetData)){
-                //cout<<"CAPEC"<<endl;
-                ++cnt;
-            }
-        }
-    }
+int main() {
+    // Start the timer
+    auto start = std::chrono::high_resolution_clock::now();
 
-    cout<<cnt<<endl;*/
+    solve();
+
+    // Stop the timer
+    auto end = std::chrono::high_resolution_clock::now();
+
+    // Calculate the duration
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    // Print the execution time
+    std::cout << "Execution time: " << duration.count() << " microseconds" << std::endl;
 
     return 0;
 }

@@ -43,10 +43,5 @@ struct OrderUpdate: SbeBaseMessage {
         os << "MDEntryType: " << orderUpdate.MDEntryType << std::endl;
         return os;
     }
-
-    void log(std::ostream &file) const override{
-        file<<"OrderUpdate: "<<std::endl;
-        file<<(*this);
-    }
 };
 #pragma pack(pop)

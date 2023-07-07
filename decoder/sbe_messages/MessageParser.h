@@ -16,13 +16,13 @@
 #endif //PARSERENCODER_MESSAGEPARSER_H
 
 class MessageParser {
-    static const size_t SIZE_OF_BASE = 8;
+    static const size_t SIZE_OF_BASE = 0;
 public:
     static bool tryParse(SBEHeader sbeHeader, const std::vector<uint8_t>& data, SbeBaseMessage*& message) {
         switch (sbeHeader.TemplateID) {
             case 15: {
                 auto *orderUpdate = new OrderUpdate();
-                if (!tryParseMessage(data, orderUpdate)){
+                if (!tryParseMessage(data, orderUpdate, sizeof(OrderUpdate) )){
                     return false;
                 }
                 message = orderUpdate;
@@ -30,7 +30,7 @@ public:
             }
             case 16: {
                 auto *orderExecution = new OrderExecution();
-                if (!tryParseMessage(data, orderExecution)){
+                if (!tryParseMessage(data, orderExecution, sizeof(OrderExecution))){
                     return false;
                 }
                 message = orderExecution;
@@ -38,7 +38,7 @@ public:
             }
             case 17: {
                 auto *orderBookSnapshot = new OrderBookSnapshot();
-                if (!tryParseMessage(data, orderBookSnapshot)){
+                if (!tryParseMessage(data, orderBookSnapshot, sizeof(OrderBookSnapshot))){
                     return false;
                 }
                 message = orderBookSnapshot;
@@ -52,8 +52,7 @@ public:
 
 private:
     template<class T>
-    static bool tryParseMessage(const std::vector<uint8_t>& data, T& message) {
-        size_t size = sizeof(T) - SIZE_OF_BASE;
+    static bool tryParseMessage(const std::vector<uint8_t>& data, T& message, size_t size) {
         if (data.size() >= size) {
             size_t headerSize = data.size() - size;
             const uint8_t* srcData = data.data() + headerSize;

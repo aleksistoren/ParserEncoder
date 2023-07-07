@@ -124,7 +124,22 @@ private:
     void decodeMesage(SBEHeader sbeHeader, const std::vector<uint8_t>& data, SbeBaseMessage *message){
         countOfMessages++;
         if (MessageParser::tryParse(sbeHeader, data, message)){
-            message->log(logFile);
+            if (sbeHeader.TemplateID == OrderUpdate::id) {
+                logFile << "OrderUpdate" <<std::endl;
+                logFile << (*(OrderUpdate*)(message)) << std::endl;
+                return;
+            }
+            if (sbeHeader.TemplateID == OrderExecution::id) {
+                logFile << "OrderExecution" <<std::endl;
+                logFile << (*(OrderExecution*)(message)) << std::endl;
+                return;
+            }
+            if (sbeHeader.TemplateID == OrderBookSnapshot::id) {
+                logFile << "OrderBookSnapshot" <<std::endl;
+                logFile << (*(OrderBookSnapshot*)(message)) << std::endl;
+                return;
+            }
+
         }else{
             logFile<<"Incorrect message"<<std::endl;
             countOfIncorrectMessages++;

@@ -18,6 +18,18 @@ enum class MDEntryType : char {
 #pragma pack(pop)
 
 std::ostream& operator<<(std::ostream& os, const MDEntryType& entryType) {
-    os << static_cast<char>(entryType);
+    switch (entryType) {
+        case MDEntryType::Bid:
+            os << "Bid";
+            break;
+        case MDEntryType::Offer:
+            os << "Offer";
+            break;
+        case MDEntryType::EmptyBook:
+            os << "Empty Book";
+            break;
+        default:
+            os << "Unknown";
+    }
     return os;
 }

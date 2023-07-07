@@ -13,6 +13,5 @@
 #pragma pack(push, 1)
 struct SbeBaseMessage{
     static const int32_t id;
-    virtual void log(std::ostream &file) const =0;
 };
 #pragma pack(pop)

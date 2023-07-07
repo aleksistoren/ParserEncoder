@@ -2,6 +2,7 @@
 // Created by Aleksis Toren on 03.07.2023.
 //
 
+#include <map>
 #include "headers/PcapGlobalHeader.h"
 #include "headers/PcapPacketHeader.h"
 #include "headers/EthernetHeader.h"
@@ -22,6 +23,8 @@ class PcapParser {
     std::ofstream logFile;
     int countOfIncorrectMessages = 0;
     int countOfMessages = 0;
+    std::map<int, int> countOfIncorrectMessagesOfId;
+    std::map<int, int> countOfMessagesOfId;
 
 public:
     PcapParser(const std::string &path, const std::string &logPath = "logsPcapData.txt")
@@ -45,8 +48,8 @@ public:
         int index = 0;
         int cntBadPackets = 0;
         while (!file.eof()) {
-            std::cout<<index++<<std::endl;
-            //if (index == 100000) break;
+            std::cout << index++ << std::endl;
+            //if (index == 10000) break;
             PcapPacket packet{};
 
             file.read(reinterpret_cast<char *>(&packet.packetHeader), sizeof(packet.packetHeader));
@@ -77,13 +80,13 @@ public:
                         << std::endl
                         << std::endl;
                 logFile << "Decoded messages: " << std::endl;
-                for (const auto& i: incrementalPacket.SbeMessages){
-                    logFile<<"Sbe Header: "<<std::endl;
-                    logFile<<i.first<<std::endl;
+                for (const auto &i: incrementalPacket.SbeMessages) {
+                    logFile << "Sbe Header: " << std::endl;
+                    logFile << i.first << std::endl;
                     SbeBaseMessage *message = nullptr;
                     decodeMesage(i.first, i.second.data, message);
                     delete message;
-                    logFile<<std::endl;
+                    logFile << std::endl;
                 }
                 continue;
             }
@@ -92,9 +95,9 @@ public:
                 logFile << snapshotPacket
                         << std::endl
                         << std::endl;
-                logFile<<"Sbe Header: "
-                       <<snapshotPacket.sbeHeader<<std::endl;
-                for (auto repeatingSection: snapshotPacket.repeatingSections){
+                logFile << "Sbe Header: "
+                        << snapshotPacket.sbeHeader << std::endl;
+                for (auto repeatingSection: snapshotPacket.repeatingSections) {
                     SbeBaseMessage *message = nullptr;
                     decodeMesage(snapshotPacket.sbeHeader, repeatingSection.data, message);
                     delete message;
@@ -108,6 +111,7 @@ public:
                     << std::endl;
         }
 
+
         logFile << "cntBadPackets = " << cntBadPackets << "/" << index
                 << std::endl;
         std::cout << "cntBadPackets = " << cntBadPackets << "/" << index
@@ -118,31 +122,44 @@ public:
         std::cout << "countOfIncorrectMessages = " << countOfIncorrectMessages << "/" << countOfMessages
                   << std::endl;
 
+        logFile << "countOfIncorrectMessagesOfId: "<< std::endl;
+        std::cout << "countOfIncorrectMessagesOfId: " << std::endl;
+
+        for (auto i: countOfMessagesOfId){
+            logFile << i.first<<" "<<countOfIncorrectMessagesOfId[i.first]<<"/"<<i.second<< std::endl;
+            std::cout << i.first<<" "<<countOfIncorrectMessagesOfId[i.first]<<"/"<<i.second<< std::endl;
+        }
+
+        logFile << std::endl;
+        std::cout << std::endl;
 
     }
+
 private:
-    void decodeMesage(SBEHeader sbeHeader, const std::vector<uint8_t>& data, SbeBaseMessage *message){
+    void decodeMesage(SBEHeader sbeHeader, const std::vector<uint8_t> &data, SbeBaseMessage *message) {
         countOfMessages++;
-        if (MessageParser::tryParse(sbeHeader, data, message)){
+        countOfMessagesOfId[sbeHeader.TemplateID]++;
+        if (MessageParser::tryParse(sbeHeader, data, message)) {
             if (sbeHeader.TemplateID == OrderUpdate::id) {
-                logFile << "OrderUpdate" <<std::endl;
-                logFile << (*(OrderUpdate*)(message)) << std::endl;
+                logFile << "OrderUpdate" << std::endl;
+                logFile << (*(OrderUpdate *) (message)) << std::endl;
                 return;
             }
             if (sbeHeader.TemplateID == OrderExecution::id) {
-                logFile << "OrderExecution" <<std::endl;
-                logFile << (*(OrderExecution*)(message)) << std::endl;
+                logFile << "OrderExecution" << std::endl;
+                logFile << (*(OrderExecution *) (message)) << std::endl;
                 return;
             }
             if (sbeHeader.TemplateID == OrderBookSnapshot::id) {
-                logFile << "OrderBookSnapshot" <<std::endl;
-                logFile << (*(OrderBookSnapshot*)(message)) << std::endl;
+                logFile << "OrderBookSnapshot" << std::endl;
+                logFile << (*(OrderBookSnapshot *) (message)) << std::endl;
                 return;
             }
 
-        }else{
-            logFile<<"Incorrect message"<<std::endl;
+        } else {
+            logFile << "Incorrect message" << std::endl;
             countOfIncorrectMessages++;
+            countOfIncorrectMessagesOfId[sbeHeader.TemplateID]++;
         }
     }
 };
